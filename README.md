@@ -38,12 +38,6 @@ Building CV Maker was a transformative journey that allowed me to enhance my ski
 
 - **Project Organization**: Managing a project of this scale has sharpened my abilities in structuring code, maintaining clean and readable codebases, and ensuring scalability.
 
-## Getting Started
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/your_username/cv-maker.git
-cd cv-maker
 
 
