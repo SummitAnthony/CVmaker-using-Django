@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Information</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            background-color: #f8f9fa;
+        }
+
+        h2 {
+            color: #343a40;
+            border-bottom: 2px solid #343a40;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .resume-section {
+            margin-bottom: 20px;
+            display: flex;
+        }
+
+        .profile-info {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .profile-image {
+            max-width: 150px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight {
+            font-weight: bold;
+        }
+
+        .skills-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .skills-item {
+            margin-right: 10px;
+            margin-bottom: 5px;
+        }
+
+        .download-link {
+            display: block;
+            margin-top: 20px;
+        }
+        .download-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .download-button:hover {
+        background-color: #0056b3;
+    }
+    </style>
+</head>
+<body>
+    <div style="max-width: 800px; margin: auto;">
+        <h2>CV Information</h2>
+        
+        <div class="resume-section">
+            {% load customfilters %}
+
+
+
+            <div class="profile-info">
+                {% if user_profile.profile_image %}
+                    {% with encoded_image=user_profile.profile_image.path|file_to_base64 %}
+                        <img class="profile-image" src="data:image/jpeg;base64,{{ encoded_image }}" alt="Profile Image">
+                    {% endwith %}
+                {% endif %}
+ 
+
+
+
+
+                <!-- Other profile information -->
+        
+                <p><span class="highlight">Name:</span> {{ user_profile.name }}</p>
+                <p><span class="highlight">Email:</span> {{ user_profile.email }}</p>
+                <p><span class="highlight">Phone:</span> {{ user_profile.phone }}</p>
+                <p><span class="highlight">About You:</span> {{ user_profile.summary }}</p>
+                
+                {% if user_profile.address %}
+                    <p><span class="highlight">Address:</span> {{ user_profile.address }}</p>
+                {% endif %}
+                
+                {% if user_profile.linkedin_url %}
+                    <p><span class="highlight">LinkedIn:</span> <a href="{{ user_profile.linkedin_url }}" target="_blank">{{ user_profile.linkedin_url }}</a></p>
+                {% endif %}
+                
+                {% if user_profile.github_url %}
+                    <p><span class="highlight">GitHub:</span> <a href="{{ user_profile.github_url }}" target="_blank">{{ user_profile.github_url }}</a></p>
+                {% endif %}
+                
+                {% if user_profile.website_url %}
+                    <p><span class="highlight">Website:</span> <a href="{{ user_profile.website_url }}" target="_blank">{{ user_profile.website_url }}</a></p>
+                {% endif %}
+                
+                {% if user_profile.education %}
+                    <p><span class="highlight">Education:</span> {{ user_profile.education }}</p>
+                {% endif %}
+                
+                {% if user_profile.experience %}
+                    <p><span class="highlight">Experience:</span> {{ user_profile.experience }}</p>
+                {% endif %}
+                
+                {% if user_profile.skills %}
+    <p><span class="highlight">Skills:</span></p>
+    <ul class="skills-list">
+                <li>{{ skill_line|safe }}</li>
+    </ul>
+{% endif %}
+
+                
+                {% if user_profile.projects %}
+                    <p><span class="highlight">Projects:</span> {{ user_profile.projects }}</p>
+                {% endif %}
+                
+                {% if user_profile.certifications %}
+                    <p><span class="highlight">Certifications:</span>
+                       
+                        {{ user_profile.certifications }}
+                     
+                    </p>
+                {% endif %}
+                
+                
+                {% if user_profile.languages %}
+                    <p><span class="highlight">Languages:</span> {{ user_profile.languages }}</p>
+                {% endif %}
+                
+                {% if user_profile.interests %}
+                    <p><span class="highlight">Interests:</span> {{ user_profile.interests }}</p>
+                {% endif %}
+            </div>
+            
+            <!-- Other sections go here -->
+        </div>
+
+        <a class="download-button" href="{% url 'download_resume' id=user_profile.id %}" target="_blank">Download PDF</a>
+    </div>
+</body>
+
+
+</html>

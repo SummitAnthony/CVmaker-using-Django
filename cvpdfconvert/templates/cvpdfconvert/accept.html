@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Information</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            color: #333;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-top: 50px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            color: #333;
+        }
+
+        .btn-primary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+        .btn-primary:hover {
+            background-color: #495057;
+            border-color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="mb-4">CV Information</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- Basic Information -->
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter your phone number">
+            </div>
+
+            <!-- About You -->
+            <div class="form-group">
+                <label for="summary">About You:</label>
+                <textarea class="form-control" id="summary" name="summary" rows="3" placeholder="Write a brief summary about yourself"></textarea>
+            </div>
+
+            <!-- Additional Fields from models.py -->
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" class="form-control" id="address" name="address" placeholder="Enter your address">
+            </div>
+            <div class="form-group">
+                <label for="linkedin_url">LinkedIn Profile URL:</label>
+                <input type="url" class="form-control" id="linkedin_url" name="linkedin_url" placeholder="Enter your LinkedIn profile URL">
+            </div>
+            <div class="form-group">
+                <label for="github_url">GitHub Profile URL:</label>
+                <input type="url" class="form-control" id="github_url" name="github_url" placeholder="Enter your GitHub profile URL">
+            </div>
+            <div class="form-group">
+                <label for="website_url">Website URL:</label>
+                <input type="url" class="form-control" id="website_url" name="website_url" placeholder="Enter your website URL">
+            </div>
+            <div class="form-group">
+                <label for="education">Education:</label>
+                <textarea class="form-control" id="education" name="education" rows="3" placeholder="Enter your education details"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="experience">Experience:</label>
+                <textarea class="form-control" id="experience" name="experience" rows="3" placeholder="Enter your work experience"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="skills">Skills:</label>
+                <textarea class="form-control" id="skills" name="skills" rows="3" placeholder="Enter your skills"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="projects">Projects:</label>
+                <textarea class="form-control" id="projects" name="projects" rows="3" placeholder="Enter your projects"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="certifications">Certifications:</label>
+                <textarea class="form-control" id="certifications" name="certifications" rows="3" placeholder="Enter your certifications"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="languages">Languages:</label>
+                <input type="text" class="form-control" id="languages" name="languages" placeholder="Enter languages you know">
+            </div>
+            <div class="form-group">
+                <label for="interests">Interests:</label>
+                <input type="text" class="form-control" id="interests" name="interests" placeholder="Enter your interests">
+            </div>
+
+            <!-- Profile Image -->
+            <div class="form-group">
+                <label for="profile_image">Profile Image:</label>
+                <input type="file" class="form-control-file" id="profile_image" name="profile_image">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and jQuery (for Bootstrap functionality) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

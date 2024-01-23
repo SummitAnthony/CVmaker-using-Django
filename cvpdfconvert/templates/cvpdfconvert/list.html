@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Database</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        h4 {
+            color: #6c757d;
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+            border-color: #ffc107;
+            color: #343a40;
+        }
+
+        .btn-warning:hover {
+            background-color: #ffca2c;
+            border-color: #ffca2c;
+            color: #343a40;
+        }
+
+        .row {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-12 text-center">
+                <h2>CV Database</h2>
+            </div>
+        </div>
+
+        {% for profile in profiles %}
+        <div class="row">
+            <div class="col-md-6">
+                <h4>{{ profile.name }}</h4>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="/resume/{{ profile.id }}" class="btn btn-warning">View</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
